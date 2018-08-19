@@ -22,9 +22,11 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
   ## Defined an empty vector in which we can store pollutant values
   for(i in seq_along(id)) {
     df <- read.csv(paste(directory,"/",formatC(id[i], width = 3, flag = "0"),".csv", sep = ""))
+    ## creating a loop to read through all csv files
     v_temp <- c(v_temp,df[,n])
   }
-  ##
+  ## concatenate vtemp with a subset of n column from all csv's
   
   mean(v_temp, na.rm = TRUE)
+  ## last expression used is the mean from which NA's are removed
 }
